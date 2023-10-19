@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+
+    <title>Gpt Movie Reviews</title>
+</head>
+<body>
+
+    <div class="app-title">
+        <h1>AI Movie Reviews Generator</h1>
+    </div>
+    
+    <form method="POST" action="/inputs">
+    <div class="tab-pane active" id="tab1">
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="userInput">Please provide the title of the movie</label> <i class="fas fa-film"></i> 
+                        <input type="text" class="form-control" id="userInput" name="userInput" placeholder="Enter your text">
+
+                        <br>
+                        <br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sentiment">How did you feel about the movie?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sentiment" id="positive" value="positive">
+                            <label class="form-check-label" for="positive">
+                                <i class="fas fa-smile text-success"></i> Positive
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sentiment" id="negative" value="negative">
+                            <label class="form-check-label" for="negative">
+                                <i class="fas fa-frown text-danger"></i> Negative
+                            </label>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label for="slider1">Select how long the movie review should be</label> <i class="fas fa-arrows-alt-h"></i>
+                        <input type="range" class="form-control-range" id="slider1" name="reviewLength" min="1" max="100">
+                        <output for="slider1">1</output>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="slider2">Select how many movie recommendations you want</label> <i class="fas fa-list-ol"></i>
+                        <input type="range" class="form-control-range" id="slider2" name="numRecommendations" min="1" max="10">
+                        <output for="slider2">1</output>
+                        <br>
+                        <br>
+                    </div>
+
+                    <div class="generate-button">
+                        <button class="btn btn-primary" id="generateButton" onclick="toggleOutputData()">Generate</button>
+
+
+                    </div>
+
+                     
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div id="output-data">
+    <div class="review card mt-4">
+        <div class="card-header">
+            <h2>Generated Review <i class="fas fa-pencil-alt"></i></h2>
+        </div>
+        <div class="card-body">
+            <p>{{ generated_review }}</p>
+        </div>
+    </div>
+
+    <div class="recommendations card mt-4">
+        <div class="card-header">
+            <h2>Recommended Movies <i class="fas fa-video"></i></h2>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                {% for movie in similar_movies %}
+                    <li class="list-group-item"><i class="fas fa-check-circle"></i> {{ movie }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="channels card mt-4">
+        <div class="card-header">
+            <h2>Streaming Channels <i class="fas fa-tv"></i></h2>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                {% for channel in streaming_channels %}
+                    <li class="list-group-item"><i class="fas fa-check-circle"></i> {{ channel }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+   
+   
+
+<!-- Include your external JavaScript file here -->
+<script src="{{url_for('static', filename='chat.js')}}"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.app-title {
+    background-color: #007bff; /* Background color */
+    color: #fff; /* Text color */
+    text-align: center; /* Center-align text */
+    padding: 20px; /* Add some spacing around the title */
+    font-size: 36px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    text-transform: uppercase; /* Uppercase text */
+}
+
+/* style.css */
+/* Add custom styles to the form container */
+.container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Customize the header */
+.app-title {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Style the form labels */
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style the sliders */
+input[type="range"] {
+    width: 100%;
+    background-color: #ddd;
+    border: none;
+    height: 20px;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the icons */
+i.fas {
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.generated-content {
+    margin: 0 auto; /* This centers the div horizontally */
+    max-width: 1200px; /* Adjust the maximum width as needed */
+}
+
+.horizontal-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-item {
+    display: inline-block;
+    margin-right: 10px; /* Adjust the spacing between items as needed */
+    padding-left: 10px; /* Adjust the padding to control the space between the bullet and the item */
+}
+
+.card-header h2 {
+    text-align: center; /* Center the titles */
+}
+
+.card-body p {
+    text-align: center; /* Center the text content */
+}
+
+.list-group-item {
+    text-align: center; /* Center the list items */
+}
+
+
+.card-header h2{
+    text-align: center; /* Center the titles and text content */
+    color: #00d9ff; /* Set the font color to red */
+}
+
+.card-body p {
+    text-align: center; /* Center the titles and text content */
+    color: #eeff00; /* Set the font color to green */
+
+}
+
+.list-group-item {
+    text-align: center; /* Center the list items */
+    color: #eeff00; /* Set the font color to green */
+}
+
